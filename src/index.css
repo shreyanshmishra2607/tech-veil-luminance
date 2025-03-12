@@ -1,101 +1,152 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --radius: 0.5rem;
   }
 }
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border selection:bg-neonblue/20 selection:text-white;
+  }
+  
+  html {
+    @apply scroll-smooth overflow-x-hidden;
+  }
+  
+  body {
+    @apply bg-cyberblack text-foreground antialiased font-[Inter] overflow-x-hidden;
+    background-image: 
+      radial-gradient(circle at 25px 25px, rgba(0, 242, 255, 0.05) 2%, transparent 0%),
+      radial-gradient(circle at 75px 75px, rgba(57, 255, 20, 0.025) 2%, transparent 0%);
+    background-size: 100px 100px;
   }
 
-  body {
-    @apply bg-background text-foreground;
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-[Space_Mono] tracking-tight;
+  }
+}
+
+@layer components {
+  .cyber-btn {
+    @apply relative inline-flex items-center justify-center px-6 py-3 bg-transparent overflow-hidden 
+           border border-neonblue hover:border-neongreen 
+           text-neonblue hover:text-neongreen 
+           transition-colors duration-300 ease-in-out
+           cursor-pointer font-[Space_Mono] tracking-wider;
+    box-shadow: inset 0 0 10px rgba(0, 242, 255, 0.2);
+  }
+  
+  .cyber-btn::before {
+    @apply content-[''] absolute w-0 h-full left-0 bg-neonblue/10 transition-all duration-300 ease-in-out z-[-1];
+  }
+  
+  .cyber-btn:hover::before {
+    @apply w-full;
+  }
+  
+  .cyber-card {
+    @apply bg-cyberblack-100 backdrop-blur-sm border border-neonblue/20 rounded-md overflow-hidden transition-all duration-300;
+  }
+  
+  .cyber-card:hover {
+    @apply border-neonblue/50 shadow-neon-blue;
+  }
+  
+  .cyber-input {
+    @apply bg-cyberblack-200 border border-neonblue/30 rounded-sm px-4 py-2 
+           text-white placeholder:text-white/50 focus:border-neonblue/70 
+           focus:outline-none focus:ring-1 focus:ring-neonblue/50 transition-all duration-300;
+  }
+  
+  .terminal-text {
+    @apply font-[Space_Mono] tracking-wider text-white;
+  }
+  
+  .terminal-effect {
+    @apply relative overflow-hidden whitespace-nowrap;
+    border-right: 2px solid #00f2ff;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  }
+  
+  .glass-panel {
+    @apply backdrop-blur-md bg-white/5 border border-white/10 shadow-lg;
+  }
+  
+  .neo-blur {
+    @apply backdrop-blur-lg bg-black/40 border border-neonblue/20;
+  }
+  
+  .scan-line {
+    @apply absolute top-0 left-0 w-full h-12 bg-gradient-to-b from-neonblue/5 to-transparent z-10 animate-scan-line;
+    pointer-events: none;
+  }
+  
+  .neon-text-blue {
+    @apply text-neonblue animate-glow;
+  }
+  
+  .neon-text-green {
+    @apply text-neongreen;
+    text-shadow: 0 0 5px rgba(57, 255, 20, 0.5), 0 0 10px rgba(57, 255, 20, 0.3);
+  }
+  
+  .glitch-effect {
+    @apply relative inline-block;
+  }
+  
+  .glitch-effect::before, .glitch-effect::after {
+    @apply content-[attr(data-text)] absolute top-0 left-0 w-full h-full;
+  }
+  
+  .glitch-effect::before {
+    @apply text-neonblue -ml-[2px] animate-glitch;
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  }
+  
+  .glitch-effect::after {
+    @apply text-neongreen -ml-[1px] animate-glitch;
+    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+    animation-delay: 0.05s;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+    
+  .clip-path-slash {
+    clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%);
+  }
+  
+  .clip-path-corner {
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
   }
 }
