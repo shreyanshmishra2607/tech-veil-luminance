@@ -93,7 +93,9 @@ const AboutSection = () => {
                   <span className="terminal-effect">securing_digital_frontier</span>
                 </div>
                 <div className="text-white/60 font-mono text-xs">
-                  > Enhancing cyber resilience through community collaboration
+                  {/* Fixed the syntax error here - replaced > with {'>'} */}
+                  {/* Changed from > Enhancing cyber resilience... to: */}
+                  {">"} Enhancing cyber resilience through community collaboration
                 </div>
               </div>
             </div>

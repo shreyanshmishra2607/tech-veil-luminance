@@ -100,7 +100,9 @@ const About = () => {
                           <span className="terminal-effect">initialize_community.sh</span>
                         </div>
                         <div className="text-white/60 font-mono text-xs">
-                          > Building a network of cyber intelligence experts
+                          {/* Fixed the syntax error here - replaced > with {'>'} */}
+                          {/* Changed from > Building a network... to: */}
+                          {">"} Building a network of cyber intelligence experts
                         </div>
                       </div>
                     </div>
